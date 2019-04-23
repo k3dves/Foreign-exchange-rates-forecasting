@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from PyEMD import EMD
 import numpy as np
-from sklearn.preprocessing import StandardScaler
 from keras.models import Sequential
 from keras.layers import Dense
 from keras.layers import LSTM
@@ -12,10 +11,9 @@ def imf_trainer(imf, testseries):
     #imf=scaler.fit_transform(imf)
     #error
     # scaler = MinMaxScaler(feature_range = (0, 1))
-    sc = StandardScaler()
     features_set = []
     labels = []
-    imf = sc.fit_transform(imf)
+    #imf = sc.fit_transform(imf)
     np.shape(imf)
     for i in range(15, len(imf)):
         features_set.append(imf[i-15:i])
